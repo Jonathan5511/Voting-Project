@@ -11,6 +11,7 @@ const defaultVoteState={
 
 const voteReducer=(state,action)=>{
     if(action.type==="ADD"){
+        console.log(action.vote.id)
         let updatedJonathanVotes
         let updatedBobVotes
         let updatedMikeVotes
@@ -21,7 +22,7 @@ const voteReducer=(state,action)=>{
         if(action.votes.monitorName==='Bob'){
             updatedBobVotes=state.BobVotes+1;
         }
-        if(action.votes.monitorName==='Jonathan'){
+        if(action.votes.monitorName==='Mike'){
             updatedMikeVotes=state.MikeVotes+1;
         }
         const updatedvotes = state.votes.concat(action.vote)

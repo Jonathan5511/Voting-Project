@@ -19,8 +19,8 @@ const Voting =props=>{
             monitorName:enteredMonitor,
             amount:1
         })
-        enteredVoterName('');
-        enteredMonitor('Jonathan');
+        setEnteredVoterName('');
+        setEnteredMonitor('Jonathan');
     }
 
     const changeVoterNameHandler=event=>{
@@ -34,10 +34,10 @@ const Voting =props=>{
     return(
         <Modal closeModal={props.onClose}>
             <form onSubmit={AddVote}>
-                <label htmlFor="name" value={enteredVoterName}onChange={changeVoterNameHandler}>Student name:</label>
-                <input id="name" type="text"/>
-                <label htmlFor="monitor" value={enteredMonitor} onChange={changeMonitorNameHandler}>Choose Monitor:</label>
-                <select id="monitor">
+                <label htmlFor="name" >Student name:</label>
+                <input id="name" type="text" value={enteredVoterName}onChange={changeVoterNameHandler}/>
+                <label htmlFor="monitor" >Choose Monitor:</label>
+                <select id="monitor" value={enteredMonitor} onChange={changeMonitorNameHandler}>
                     <option>Jonathan</option>
                     <option>Bob</option>
                     <option>Mike</option>
