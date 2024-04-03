@@ -10,35 +10,34 @@ const defaultVoteState={
 }
 
 const voteReducer=(state,action)=>{
-    if(action.type==="ADD"){
-        console.log(action.vote.id)
-        let updatedJonathanVotes
-        let updatedBobVotes
-        let updatedMikeVotes
-        const updatedTotalVotes = state.TotalVotes+1;
-        if(action.votes.monitorName==='Jonathan'){
-            updatedJonathanVotes=state.JonathanVotes+1;
-        }
-        if(action.votes.monitorName==='Bob'){
-            updatedBobVotes=state.BobVotes+1;
-        }
-        if(action.votes.monitorName==='Mike'){
-            updatedMikeVotes=state.MikeVotes+1;
-        }
-        const updatedvotes = state.votes.concat(action.vote)
-
-        return{
-            votes:updatedvotes,
-            TotalVotes:updatedTotalVotes,
-            JonathanVotes:updatedJonathanVotes,
-            BobVotes:updatedBobVotes,
-            MikeVotes:updatedMikeVotes,
+    if (action.type === "ADD") {
+        const updatedTotalVotes = state.TotalVotes + 1;
+        const monitor = action.vote.monitorName;
+        return {
+          votes: [...state.votes, action.vote],
+          TotalVotes: updatedTotalVotes,
+          JonathanVotes:
+            monitor === "Jonathan" ? state.JonathanVotes + 1 : state.JonathanVotes,
+          BobVotes: monitor === "Bob" ? state.BobVotes + 1 : state.BobVotes,
+          MikeVotes: monitor === "Mike" ? state.MikeVotes + 1 : state.MikeVotes,
         };
-    }
-    if(action.type==="REMOVE"){
+      }
+    if (action.type === "REMOVE") {
+        const updatedTotalVotes = state.TotalVotes -1;
+        const monitor = action.id.mName;
+        const updatedVotes=state.votes.filter(vote=>vote.id!==action.id.id)
+        return {
+            votes: updatedVotes,
+            TotalVotes: updatedTotalVotes,
+            JonathanVotes:
+              monitor === "Jonathan" ? state.JonathanVotes - 1 : state.JonathanVotes,
+            BobVotes: monitor === "Bob" ? state.BobVotes - 1 : state.BobVotes,
+            MikeVotes: monitor === "Mike" ? state.MikeVotes - 1 : state.MikeVotes,
+          };
+    
 
     }
-    return defaultVoteState;
+      return state;
 }
 
 const VoteProvider=props=>{
