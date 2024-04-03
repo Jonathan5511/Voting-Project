@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Voting from "./Components/Voting/Voting";
+import TotalVoting from "./Components/Voting/TotalVoting";
+import MonitorList from "./Components/Voting/MonitorList";
+import VoteProvider from "./store/voteProvider";
 
 function App() {
+  const [showVotingonScreen,setShowVotingOnScreen]=useState(false);
+
+  const showVotingHandler=()=>{
+    setShowVotingOnScreen(true);
+  }
+
+  const hideVotingHandler=()=>{
+    setShowVotingOnScreen(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <VoteProvider>
+      <h1>Class Monitor Vote</h1>
+      <TotalVoting/>
+      <button type="button" onClick={showVotingHandler}>Add New Vote</button>
+      {showVotingonScreen && <Voting onClose={hideVotingHandler}/>}
+      <MonitorList/>
+    </VoteProvider>
+  )
+  
 }
 
 export default App;
