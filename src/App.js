@@ -3,6 +3,7 @@ import Voting from "./Components/Voting/Voting";
 import TotalVoting from "./Components/Voting/TotalVoting";
 import MonitorList from "./Components/Voting/MonitorList";
 import VoteProvider from "./store/voteProvider";
+import classes from './App.module.css'
 
 function App() {
   const [showVotingonScreen,setShowVotingOnScreen]=useState(false);
@@ -17,9 +18,11 @@ function App() {
 
   return (
     <VoteProvider>
-      <h1>Class Monitor Vote</h1>
+      <h1 className={classes.header}>Class Monitor Vote</h1>
       <TotalVoting/>
-      <button type="button" onClick={showVotingHandler}>Add New Vote</button>
+      <div className={classes.actions}>
+        <button type="button" onClick={showVotingHandler}>Add New Vote</button>
+      </div>
       {showVotingonScreen && <Voting onClose={hideVotingHandler}/>}
       <MonitorList/>
     </VoteProvider>

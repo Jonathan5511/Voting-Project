@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import Modal from "../UI/Modal";
 import VoteContext from "../../store/vote-context";
+import Card from "../UI/Card";
+import classes from './Voting.module.css'
 
 const Voting = (props) => {
   const [enteredVoterName, setEnteredVoterName] = useState("");
@@ -13,7 +15,6 @@ const Voting = (props) => {
     if (enteredVoterName.trim().length === 0) {
       return;
     }
-    // Change here: Correct function name and pass the vote object
     voteCtx.addVote({
         id: Math.random().toString(),
         voterName: enteredVoterName,
@@ -35,29 +36,33 @@ const Voting = (props) => {
 
   return (
     <Modal closeModal={props.onClose}>
-      <form onSubmit={AddVote}>
-        <label htmlFor="name">Student name:</label>
-        <input
-          id="name"
-          type="text"
-          value={enteredVoterName}
-          onChange={changeVoterNameHandler}
-        />
-        <label htmlFor="monitor">Choose Monitor:</label>
-        <select
-          id="monitor"
-          value={enteredMonitor}
-          onChange={changeMonitorNameHandler}
-        >
-          <option>Jonathan</option>
-          <option>Bob</option>
-          <option>Mike</option>
-        </select>
-        <button type="submit">Vote</button>
-        <button type="button" onClick={props.onClose}>
-          X
-        </button>
-      </form>
+        <Card className={classes.input} >
+                <form onSubmit={AddVote}>
+                    <label htmlFor="name">Student name:</label>
+                    <input
+                    id="name"
+                    type="text"
+                    value={enteredVoterName}
+                    onChange={changeVoterNameHandler}
+                    />
+                    <label htmlFor="monitor">Choose Monitor:</label>
+                    <select
+                    id="monitor"
+                    value={enteredMonitor}
+                    onChange={changeMonitorNameHandler}
+                    >
+                    <option>Jonathan</option>
+                    <option>Bob</option>
+                    <option>Mike</option>
+                    </select>
+                    <div className={classes.actions}>
+                        <button type="submit">Vote</button>
+                        <button type="button" onClick={props.onClose}>
+                        X
+                        </button>
+                    </div>
+                </form>
+      </Card>
     </Modal>
   );
 };

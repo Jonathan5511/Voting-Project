@@ -1,0 +1,40 @@
+.header {
+    
+  margin: 0.8rem auto;
+  padding: 1rem auto;
+  width: 100%;
+  max-width: 100rem;
+  text-align: center;
+  background: rgb(164, 164, 245);
+  }
+
+  .actions {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    background-color: rgb(72, 72, 243);
+    border: 1px solid rgb(123, 123, 224);
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    
+  }
+  
+  .actions button:hover,
+  .actions button:active {
+    background-color: rgb(123, 123, 224);
+    border-color: rgb(123, 123, 224);
+    color: white;
+  }
+  
+  .actions .button--alt {
+    color:rgb(123, 123, 224);
+  }
+  
+  .actions .button {
+    background-color:rgb(123, 123, 224);
+    color: white;
+  }

@@ -1,0 +1,23 @@
+.votes {
+    width: 90%;
+    max-width: 50rem; 
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+
+  .votes ul {
+    list-style: none;
+    font-weight: bold;
+  }
+  
+  .votes li {
+    
+    font-weight: bold;
+  }
+
+  .votes p{
+    font-weight: bold;
+  }
+  
+  

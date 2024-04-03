@@ -1,0 +1,61 @@
+
+  .input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input input {
+    font: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0.15rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input select{
+    font: inherit;
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0.15rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input input:focus {
+    outline: none;
+    border-color: #4f005f;
+  }
+  
+ 
+  .actions {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .actions button {
+    font: inherit;
+    cursor: pointer;
+    background-color: rgb(72, 72, 243);
+    border: 1px solid rgb(123, 123, 224);
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    margin-left: 1rem;
+  }
+  
+  .actions button:hover,
+  .actions button:active {
+    background-color: rgb(123, 123, 224);
+    border-color: rgb(123, 123, 224);
+    color: white;
+  }
+  
+  .actions .button--alt {
+    color:rgb(123, 123, 224);
+  }
+  
+  .actions .button {
+    background-color:rgb(123, 123, 224);
+    color: white;
+  }

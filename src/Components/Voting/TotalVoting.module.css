@@ -1,0 +1,8 @@
+.p {
+    margin: 0.5rem auto;
+    padding: 0rem;
+    width: 90%;
+    max-width: 50rem;
+    text-align: center;
+    font-weight: bold;
+}
