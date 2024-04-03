@@ -19,5 +19,31 @@
   .votes p{
     font-weight: bold;
   }
+
+  .votes button {
+    font: inherit;
+    cursor: pointer;
+    background-color: rgb(72, 72, 243);
+    border: 1px solid rgb(123, 123, 224);
+    padding: 0.1rem 0.5rem;
+    border-radius: 25px;
+    
+  }
+  
+  .votes button:hover,
+  .votes button:active {
+    background-color: rgb(123, 123, 224);
+    border-color: rgb(123, 123, 224);
+    color: white;
+  }
+  
+  .votes .button--alt {
+    color:rgb(123, 123, 224);
+  }
+  
+  .actions .button {
+    background-color:rgb(123, 123, 224);
+    color: white;
+  }
   
   
